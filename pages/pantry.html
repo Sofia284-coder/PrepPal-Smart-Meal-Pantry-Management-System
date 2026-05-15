@@ -1,0 +1,178 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrepPal | My Pantry</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1 class="logo">PrepPal</h1>
+            <nav>
+                <ul>
+                    <li><a href="pantry.html" class="active">Pantry</a></li>
+                    <li><a href="meal-planning.html">Meal Plan</a></li>
+                    <li><a href="history.html">History</a></li>
+                    <li><a href="settings.html">Settings</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="pantry-header">
+            <h2>Pantry Inventory</h2>
+            <button id="openModalBtn" class="btn-primary">+ Add New Ingredient</button>
+        </section>
+
+        <section class="inventory-card">
+            <table class="pantry-table">
+                <thead>
+                    <tr>
+                        <th>Ingredient</th>
+                        <th>Quantity</th>
+                        <th>Unit</th>
+                        <th>Expiry Date</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="pantry-list">
+                    <tr>
+                        <td><strong>Fresh Milk</strong></td>
+                        <td>1.5</td>
+                        <td>Liters</td>
+                        <td>2026-04-10</td>
+                        <td><span class="badge badge-success">In Stock</span></td>
+                        <td>
+                            <button class="btn-edit">Edit</button>
+                            <button class="btn-delete">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tomatoes</strong></td>
+                        <td>2</td>
+                        <td>Pieces</td>
+                        <td>2026-04-05</td>
+                        <td><span class="badge badge-warning">Low Stock</span></td>
+                        <td>
+                            <button class="btn-edit">Edit</button>
+                            <button class="btn-delete">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <dialog id="ingredientModal">
+        <div class="modal-content">
+            <h3>Add New Ingredient</h3>
+            <form id="ingredient-form" method="dialog">
+                <div class="form-group">
+                    <label for="name">Ingredient Name</label>
+                    <input type="text" id="name" name="name" required placeholder="e.g. Chicken Breast">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="qty">Quantity</label>
+                        <input type="number" id="qty" name="qty" required step="0.1">
+                    </div>
+                    <div class="form-group">
+                        <label for="unit">Unit</label>
+                        <select id="unit" name="unit">
+                            <option value="kg">kg</option>
+                            <option value="grams">grams</option>
+                            <option value="liters">liters</option>
+                            <option value="pieces">pieces</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="expiry">Expiry Date</label>
+                    <input type="date" id="expiry" name="expiry">
+                </div>
+
+                <div class="form-group">
+                    <label for="threshold">Low Stock Threshold</label>
+                    <input type="number" id="threshold" name="threshold" placeholder="Notify when below this qty">
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" id="closeModalBtn" class="btn-secondary">Cancel</button>
+                    <button type="submit" class="btn-primary">Save to Pantry</button>
+                </div>
+            </form>
+        </div>
+    </dialog>
+
+    <script src="../js/pantry.js"></script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PrepPal - Pantry</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">PrepPal</div>
+    <nav>
+        <ul>
+            <li><a href="recipe.html">Recipes</a></li>
+            <li><a href="plan.html">Weekly Plan</a></li>
+            <li><a href="pantry.html">Pantry</a></li>
+            <li><a href="grocery.html">Grocery List</a></li>
+            <li><a href="notification.html">Notifications</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="container">
+    <section class="page-header">
+        <h1>My Pantry Storage</h1>
+        <button class="btn-add" onclick="openModal('pantryModal')">Add Ingredient +</button>
+    </section>
+
+    <table class="plan-table">
+        <thead>
+            <tr>
+                <th>Ingredient</th>
+                <th>Quantity</th>
+                <th>Unit</th>
+                <th>Expiry Date</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="pantryBody">
+            </tbody>
+    </table>
+</main>
+
+<div id="pantryModal" class="modal">
+    <div class="modal-content">
+        <h2 id="pantryModalTitle">Add to Pantry</h2>
+        <form id="pantryForm">
+            <input type="text" id="panName" placeholder="Ingredient Name (e.g. Eggs)" required>
+            <input type="number" id="panQty" placeholder="Quantity" required>
+            <input type="text" id="panUnit" placeholder="Unit (e.g. kg, pcs, ml)">
+            <input type="date" id="panExpiry">
+            <button type="submit" class="btn-add">Save Item</button>
+            <button type="button" onclick="closeModal('pantryModal')">Cancel</button>
+        </form>
+    </div>
+</div>
+
+<script src="../js/app.js"></script>
+</body>
+</html>

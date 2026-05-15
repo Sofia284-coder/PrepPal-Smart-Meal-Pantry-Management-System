@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PrepPal - Weekly Plan</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">PrepPal</div>
+    <nav>
+        <ul>
+            <li><a href="recipe.html">Recipes</a></li>
+            <li><a href="plan.html">Weekly Plan</a></li>
+            <li><a href="pantry.html">Pantry</a></li>
+            <li><a href="grocery.html">Grocery List</a></li>
+            <li><a href="notification.html">Notifications</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="container">
+    <section class="page-header">
+        <h1>Weekly Meal Schedule</h1>
+        <div class="quick-add">
+            <select id="recipeSelect">
+                <option value="">Select a Recipe...</option>
+            </select>
+            <select id="daySelect">
+                <option>Monday</option><option>Tuesday</option><option>Wednesday</option>
+                <option>Thursday</option><option>Friday</option><option>Saturday</option><option>Sunday</option>
+            </select>
+            <select id="timeSelect">
+                <option>Breakfast</option><option>Lunch</option><option>Dinner</option>
+            </select>
+            <button class="btn-add" onclick="manualAddToPlan()">Add to Plan</button>
+        </div>
+    </section>
+
+    <table class="plan-table">
+        <thead>
+            <tr>
+                <th>Day</th>
+                <th>Breakfast</th>
+                <th>Lunch</th>
+                <th>Dinner</th>
+            </tr>
+        </thead>
+        <tbody id="planBody">
+            </tbody>
+    </table>
+</main>
+
+<script src="../js/app.js"></script>
+</body>
+</html>

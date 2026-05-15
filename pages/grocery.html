@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PrepPal - Grocery List</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">PrepPal</div>
+    <nav>
+        <ul>
+            <li><a href="recipe.html">Recipes</a></li>
+            <li><a href="plan.html">Weekly Plan</a></li>
+            <li><a href="pantry.html">Pantry</a></li>
+            <li><a href="grocery.html">Grocery List</a></li>
+            <li><a href="notification.html">Notifications</a></li>
+            
+        </ul>
+    </nav>
+</header>
+
+<main class="container">
+    <section class="page-header">
+        <h1>Shopping List</h1>
+        <div class="header-actions">
+            <button class="btn-clear-grocery" onclick="clearGroceryList()">Clear All</button>
+            <button class="btn-add" style="width: 100%;" onclick="openModal('groceryModal')">Add Item +</button>
+        </div>
+    </section>
+
+    <div class="grocery-container">
+        <ul id="groceryBody" class="grocery-list">
+            </ul>
+    </div>
+</main>
+
+<div id="groceryModal" class="modal">
+    <div class="modal-content">
+        <h2>Add to Shopping List</h2>
+        <form id="groceryForm">
+            <input type="text" id="grocName" placeholder="Item Name" required>
+            <input type="number" id="grocQty" placeholder="Qty" required>
+            <button type="submit" class="btn-add">Add Item</button>
+            <button type="button" onclick="closeModal('groceryModal')">Cancel</button>
+        </form>
+    </div>
+</div>
+
+<script src="../js/app.js"></script>
+</body>
+</html>

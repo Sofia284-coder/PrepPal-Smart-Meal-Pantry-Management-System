@@ -1,0 +1,389 @@
+:root {
+    --primary: #27ae60;
+    --secondary: #2c3e50;
+    --accent: #e67e22;
+    --bg: #f4f7f6;
+    --white: #ffffff;
+    --behind: #aaafad;
+    --edit: #3498db;
+    --delete: rgba(231, 76, 60, 0.8);
+}
+
+* { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+}
+
+
+
+body { 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    background: var(--bg); 
+    color: var(--secondary); 
+}
+
+
+/*Header and Nav*/
+header {
+    background: var(--secondary);
+    color: var(--white);
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header .logo { 
+    font-size: 1.5rem; 
+    font-weight: bold; 
+    color: var(--primary); }
+
+nav ul { 
+    display: flex; 
+    list-style: none;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+
+nav a { 
+    color: white; 
+    text-decoration: none; 
+    font-size: 0.9rem; 
+}
+
+
+nav a:hover { 
+    color: var(--primary); 
+}
+
+
+
+
+/* Main*/
+
+.container { 
+    padding: 2rem 5%; 
+}
+
+
+.page-header { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin-bottom: 2rem; 
+}
+
+/* Recipe Grid */
+.recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.recipe-card {
+    background: var(--white);
+    border-radius: 12px;
+    /* overflow: hidden; */
+    position: relative;
+}
+
+.recipe-card:hover { 
+    transform: translateY(-5px); 
+}
+
+.recipe-card img { 
+    width: 100%; 
+    height: 180px; 
+    object-fit: contain; 
+    background-color: #f0f0f0;
+}
+
+
+.recipe-card-content { 
+    padding: 1rem; 
+}
+
+
+button { 
+    cursor: pointer; 
+    border: none; 
+    border-radius: 5px;
+}
+
+
+.btn-add { 
+    background: var(--primary);
+    color: white; 
+    padding: 10px 20px; 
+    font-weight: bold; 
+    }
+
+
+.btn-edit {
+    background: var(--edit);
+    color: white;
+    padding: 5px 15px;
+    font-size: 0.8rem;
+
+    /* to center */
+    display: block;           
+    margin: 0 auto 10px auto; 
+   
+}
+
+.btn-plan { 
+    background: var(--accent);
+    color: white; 
+    width: 100%; 
+    padding: 8px; 
+    margin-top: 10px; 
+    }
+
+.plan-selector{
+    background-color: var(--behind);
+
+}
+
+
+.btn-delete {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: var(--delete);
+    color: white;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    z-index: 10;
+    transition: 0.3s;
+}
+
+.btn-delete:hover {
+    background: #c0392b;
+}
+
+
+/* Modals */
+.modal {
+    display: none; 
+    position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.7);
+    justify-content: center; 
+    align-items: center;
+}
+
+
+.modal-content { 
+    background: white; 
+    padding: 30px; 
+    border-radius: 10px; 
+    width: 90%; 
+    max-width: 500px; }
+
+
+/* Form Groups */
+.form-group {
+    margin-bottom: 15px;
+}
+
+/* Labels */
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+/* Inputs & Textareas */
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+/* Focus effect */
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+/* Small helper text */
+.form-group small {
+    font-size: 12px;
+    color: #777;
+}
+
+
+/* plan.html */
+
+.plan-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.plan-table th, .plan-table td {
+    padding: 15px;
+    border: 1px solid #eee;
+    text-align: center;
+    width: 22%; /* Equal columns */
+}
+
+.plan-table th { 
+    background: var(--secondary); 
+    color: white; }
+
+
+.plan-table tr td:first-child {
+     font-weight: bold; 
+     background: #f9f9f9; 
+     width: 12%; 
+    }
+
+.meal-slot {
+    min-height: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+}
+
+.planned-item {
+    background: #e8f4fd;
+    border-left: 4px solid var(--primary);
+    padding: 5px 10px;
+    font-size: 0.85rem;
+    border-radius: 4px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-mini-del { color: #e74c3c; cursor: pointer; font-weight: bold; }
+
+.quick-add {
+    display: flex;
+    gap: 10px;
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+
+/* Status Badges */
+.badge {
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+
+.badge-ok { background: #d4edda; 
+    color: #155724; }
+.badge-low { background: #fff3cd; 
+    color: #856404; }
+.badge-expired { background: #f8d7da; 
+    color: #721c24; 
+}
+
+
+.btn-edit-small { background: #3498db; 
+    color: white; padding: 4px 8px; margin-right: 5px; font-size: 0.8rem; }
+.btn-del-small { background: #e74c3c; color: white; padding: 4px 8px; font-size: 0.8rem; }
+
+
+/*Grocery.html*/
+
+
+.grocery-list {
+    list-style: none;
+    padding: 0;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.grocery-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+    transition: 0.3s;
+}
+
+.grocery-item:last-child { border-bottom: none; }
+
+.grocery-item.checked {
+    background: #f8f9fa;
+    opacity: 0.6;
+}
+
+.grocery-item.checked span {
+    text-decoration: line-through;
+}
+
+.groc-controls {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.checkbox-custom {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+
+.btn-clear-grocery { 
+    background: var(--behind);
+    color: white; 
+    width: 100%; 
+    padding: 8px; 
+    margin-top: 10px; 
+    margin-bottom: 10px;
+
+}
+
+.notif-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.alert-box {
+    padding: 15px 20px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-left: 5px solid transparent;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.alert-warning { border-left-color: #f1c40f; background: #fffdf0; }
+.alert-danger { border-left-color: #e74c3c; background: #fdf2f2; }
+
+.alert-icon { font-size: 1.5rem; }
+.alert-text { flex: 1; font-weight: 500; }
